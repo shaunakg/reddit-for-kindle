@@ -2,8 +2,9 @@ var express = require('express');
 var app = express();
 var http = require('http').createServer(app);
 var url = require('url');
-const rp = require('request-promise');
 var querystring = require('querystring');
+var request = require('request');
+
 const PORT = process.env.PORT || 8080;
 
 app.use(express.static('static'));
@@ -22,18 +23,12 @@ app.get('/simplify.html', function (req, res) {
 
     if ( Object.keys(qsjson).length == 1 && qsjson.url.includes('redd') ) {
 
-
         let redditurl = qsjson.url + ".json";
         res.send(redditurl);
 
-        rp(redditurl)
-        .then(function(html){
-            res.send(html);
-        })
-        .catch(function(err){
-            //handle error
+        request(redditurl, function (error, response, body) {
+            
         });
-
 
     } else {
         res.redirect(301, '/index.html?error=not_reddit');
