@@ -1,0 +1,29 @@
+
+body {
+    font-family: sans-serif;
+    background: linear-gradient(to right, red, rgb(250, 157, 157));
+}
+
+.url-form {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+
+.url-enter-field {
+    padding: 15px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: none;
+    border: none;
+}
+
+.url-submit {
+    padding: 15px;
+    border-radius: 10px;
+    background: rgb(0, 200, 0);
+    box-shadow: none;
+    border: none;
+}

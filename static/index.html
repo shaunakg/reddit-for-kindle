@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+
+    <link rel="stylesheet" href="stylesheet.css">
+
+</head>
+
+<body>
+
+
+<form action="simplify.html" method="GET" class="url-form">
+
+    <input type="text" class="url-enter-field" name="url" id="url" placeholder="reddit url to simplify" required>
+    <input type="submit" class="url-submit" value="Go!"><br><br>
+    <center><a id="bookmark-button" href='javascript:window.location.replace("https://redditforkindle.herokuapp.com/simplify.html?url="+window.location.href);'>Auto-simplify bookmark</a></center>
+
+</form>
+
+</body>
+
+<script>
+
+document.querySelector("#bookmark-button").addEventListener("click", function(event) {
+    alert("Drag this to your bookmarks bar to have a button that will automatically simplify any reddit pages when you click it.");
+    event.preventDefault();
+}, false);
+
+</script>
