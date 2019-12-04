@@ -9,6 +9,9 @@
 
 <body>
 
+<div id="errordisplay">
+    <span id="errortext"></span> <span id="errorgoaway">❌</span>
+</div>
 
 <form action="simplify.html" method="GET" class="url-form">
 
@@ -26,5 +29,25 @@ document.querySelector("#bookmark-button").addEventListener("click", function(ev
     alert("Drag this to your bookmarks bar to have a button that will automatically simplify any reddit pages when you click it.");
     event.preventDefault();
 }, false);
+
+const urlParams = new URLSearchParams(window.location.search);
+const errorParam = urlParams.get('error');
+const errorDisplay = document.getElementById("errordisplay");
+const errorText = document.getElementById("errortext");
+const errorGo = document.getElementById('errorgoaway');
+
+if (errorParam == "error_json_parse") {
+    errorText.innerText = "Sorry, we couldn't retrieve information from that URL.";
+    errorDisplay.style.display = "unset";
+} else if (errorParam == "not_reddit") {
+    errorText.innerText = "Sorry, that isn't an official reddit link.";
+    errorDisplay.style.display = "unset";
+} else {
+    errorDisplay.style.display = "none";
+}
+
+errorGo.onclick = function () {
+    errorDisplay.style.display = "none";
+}
 
 </script>
