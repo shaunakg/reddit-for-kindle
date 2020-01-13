@@ -43,3 +43,16 @@ body {
 #errorgoaway {
     cursor: pointer;
 }
+
+/* Bottom credit bar */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    width: 98%;
+    left: 0;
+    right: 0;
+    color: white;
+    background-color: black;
+    padding: 1%;
+    margin: 0;
+}
