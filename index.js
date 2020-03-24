@@ -46,10 +46,9 @@ app.get('/simplify.html', function (req, res) {
     console.log("---\nSimplifying page was visted");
 
     if (serverStatus == "ok") {
+        if ( Object.keys(req.query).length == 1 && req.query.url.includes('redd') ) {
 
-        if ( Object.keys(qsjson).length == 1 && qsjson.url.includes('redd') ) {
-
-            var redditurl = qsjson.url.split("?")[0].replace("?","").replace("http:", "https:");
+            var redditurl = req.query.url.replace("http:", "https:").split("?")[0].replace("?","");
 
             if (redditurl.includes("redd.it")) {
                 console.log("This is a reddit shortlink URL");
