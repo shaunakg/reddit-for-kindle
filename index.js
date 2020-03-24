@@ -46,9 +46,6 @@ app.get('/simplify.html', function (req, res) {
     console.log("---\nSimplifying page was visted");
 
     if (serverStatus == "ok") {
-        let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-        let parsedUrl = url.parse(fullUrl);
-        let qsjson = querystring.parse(parsedUrl.query);
 
         if ( Object.keys(qsjson).length == 1 && qsjson.url.includes('redd') ) {
 
@@ -63,7 +60,7 @@ app.get('/simplify.html', function (req, res) {
                 redditurl = "https://reddit.com/" + shortlink + ".json";
 
             } else {
-                redditurl = qsjson.url.replace("http:", "https:") + ".json";
+                redditurl = redditurl + ".json";
             }
 
             console.log("Starting request to: " + redditurl);
