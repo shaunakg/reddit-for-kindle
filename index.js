@@ -52,7 +52,7 @@ app.get('/simplify.html', function (req, res) {
 
         if ( Object.keys(qsjson).length == 1 && qsjson.url.includes('redd') ) {
 
-            var redditurl = qsjson.url.replace("http:", "https:");
+            var redditurl = qsjson.url.split("?")[0].replace("?","").replace("http:", "https:");
 
             if (redditurl.includes("redd.it")) {
                 console.log("This is a reddit shortlink URL");
